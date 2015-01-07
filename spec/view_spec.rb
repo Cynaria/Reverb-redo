@@ -45,4 +45,18 @@ describe View do
 			view.get_birthdate
 		end
 	end
+
+	describe '#get_gender' do
+		it 'calls PersonController#gender' do
+			expect(PersonController).to receive(:gender)
+			view.get_gender
+		end
+	end
+
+	describe '#format' do
+		let(:people) {[Person.new("Liepe", "Tammy", "Female", "Pink", "04/24/1961"), Person.new("Liepe", "Michael", "Male", "Red", "07/27/1960")]}
+		it 'formats Person objects' do
+			expect {view.render(people)}.to output("Last Name: Liepe First Name: Tammy Gender: Female Favorite Color: Pink Birthdate: 04/24/1961 \nLast Name: Liepe First Name: Michael Gender: Male Favorite Color: Red Birthdate: 07/27/1960 \n").to_stdout
+		end
+	end
 end
