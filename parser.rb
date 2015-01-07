@@ -1,4 +1,3 @@
-require "pry"
 class Parser
 	def self.split_file(file)
 		file = File.new(file, "r")
