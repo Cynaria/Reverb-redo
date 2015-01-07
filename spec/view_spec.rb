@@ -32,7 +32,12 @@ describe View do
 		end
 	end
 
-
+	describe '#get_last_names' do
+		it 'calls PersonController#last_names' do
+			expect(PersonController).to receive(:last_names)
+			view.get_last_names
+		end
+	end
 
 
 end

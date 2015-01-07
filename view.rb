@@ -18,6 +18,7 @@ class View
 	end
 
 	def get_last_names
+		PersonController.last_names
 	end
 
 	def get_birthdate
