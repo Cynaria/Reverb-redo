@@ -29,9 +29,13 @@ class View
 		PersonController.gender
 	end
 
-	def render(people)
+	def render_people(people)
 		people.each do |person|
 			puts "Last Name: #{person.last_name} First Name: #{person.first_name} Gender: #{person.gender} Favorite Color: #{person.favorite_color} Birthdate: #{person.birthdate} "
 		end
+	end
+
+	def render_string(string)
+		puts string
 	end
 end

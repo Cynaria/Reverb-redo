@@ -53,10 +53,17 @@ describe View do
 		end
 	end
 
-	describe '#format' do
+	describe '#render_people' do
 		let(:people) {[Person.new("Liepe", "Tammy", "Female", "Pink", "04/24/1961"), Person.new("Liepe", "Michael", "Male", "Red", "07/27/1960")]}
-		it 'formats Person objects' do
-			expect {view.render(people)}.to output("Last Name: Liepe First Name: Tammy Gender: Female Favorite Color: Pink Birthdate: 04/24/1961 \nLast Name: Liepe First Name: Michael Gender: Male Favorite Color: Red Birthdate: 07/27/1960 \n").to_stdout
+		it 'renders Person objects to stdout' do
+			expect {view.render_people(people)}.to output("Last Name: Liepe First Name: Tammy Gender: Female Favorite Color: Pink Birthdate: 04/24/1961 \nLast Name: Liepe First Name: Michael Gender: Male Favorite Color: Red Birthdate: 07/27/1960 \n").to_stdout
+		end
+	end
+
+	describe '#render_string' do
+		let(:string) {"I'm a string being rendered! Yaaaay..."}
+		it 'renders strings to output' do
+			expect {view.render_string(string)}.to output("I'm a string being rendered! Yaaaay...\n").to_stdout
 		end
 	end
 end
