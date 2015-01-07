@@ -24,4 +24,11 @@ describe Parser do
 			expect(Parser.parse_info(" Cruz | Elizabeth | Female | Green | 08/24/1989 ")).to eq(["Cruz", "Elizabeth", "Female", "Green", "08/24/1989"])
 		end
 	end
+
+	describe '#combine_files' do
+		it 'combines multi-file data into one' do
+			Parser.combine_files("./data/space.txt", "./data/comma.txt", "./data/pipe.txt")
+			expect(File.open('./data/combined.txt', "r").read).to match(" Cruz Jason Male Green 11/22/2010 \n")
+		end
+	end
 end
