@@ -22,6 +22,7 @@ class View
 	end
 
 	def get_birthdate
+		PersonController.birthdate
 	end
 
 	def get_gender

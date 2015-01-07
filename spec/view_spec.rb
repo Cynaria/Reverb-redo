@@ -39,5 +39,10 @@ describe View do
 		end
 	end
 
-
+	describe '#get_birthdate' do
+		it 'calls PersonController#birthdate' do
+			expect(PersonController).to receive(:birthdate)
+			view.get_birthdate
+		end
+	end
 end
