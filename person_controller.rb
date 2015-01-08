@@ -12,18 +12,20 @@ class PersonController
 	end
 
 	def last_names
-		sorted = create_people.sort_by { |person| person.last_name }.reverse
-		View.render_people(sorted)
+		create_people.sort_by { |person| person.last_name }.reverse
 	end
 
 	def birthdate
-		sorted = create_people.sort_by { |person| person.birthdate }
-		View.render_people(sorted)
+		create_people.sort_by { |person| person.birthdate }
 	end
 
 	def gender
-		sorted = create_people.sort_by { |person| [person.gender, person.last_name] }
-		View.render_people(sorted)
+		create_people.sort_by { |person| [person.gender, person.last_name] }
+	end
+
+	def add_person(string)
+		info = Parser.add_line(string)
+		Person.new(info[0],info[1],info[2],info[3],Date.strptime(info[4], '%m/%d/%Y'))
 	end
 
 	def create_people

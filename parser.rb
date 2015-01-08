@@ -10,6 +10,12 @@ class Parser
 		info_str.split(/, |\|| /).delete_if {|s| s.empty?}
 	end
 
+	def self.add_line(string)
+		info = Parser.parse_info(string)
+		File.open("./data/combined.txt", "a") { |file| file << " #{info[0]} #{info[1]} #{info[2]} #{info[3]} #{info[4]} \n" }
+		return info
+	end
+
 	def self.combine_files(files)
 		File.open('./data/combined.txt', "w") do |f|
 			files.each do |file|

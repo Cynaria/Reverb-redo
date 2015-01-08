@@ -42,4 +42,10 @@ describe PersonController do
 			expect(controller.gender[0].first_name).to eq("Janette")
 		end
 	end
+
+	describe '#add_person' do
+		it 'returns a person object' do
+			expect(controller.add_person(" Liepe Patti Female Blue 11/19/1987 ")).to be_an_instance_of Person
+		end
+	end
 end

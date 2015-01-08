@@ -25,6 +25,13 @@ describe Parser do
 		end
 	end
 
+	describe '#add_line' do
+		it 'enters string into combined.txt' do
+			Parser.add_line(" Liepe Patti Female Blue 11/19/1987 ")
+			expect(File.open('./data/combined.txt', "r").read).to match(" Liepe Patti Female Blue 11/19/1987 \n")
+		end
+	end
+
 	describe '#combine_files' do
 		it 'combines multi-file data into one' do
 			Parser.combine_files(["./data/space.txt", "./data/comma.txt", "./data/pipe.txt"])

@@ -35,21 +35,21 @@ describe View do
 
 	describe '#get_last_names' do
 		it 'calls PersonController#last_names' do
-			expect_any_instance_of(PersonController).to receive(:last_names)
+			expect_any_instance_of(View).to receive(:render_people)
 			view.get_last_names
 		end
 	end
 
 	describe '#get_birthdate' do
 		it 'calls PersonController#birthdate' do
-			expect_any_instance_of(PersonController).to receive(:birthdate)
+			expect_any_instance_of(View).to receive(:render_people)
 			view.get_birthdate
 		end
 	end
 
 	describe '#get_gender' do
 		it 'calls PersonController#gender' do
-			expect_any_instance_of(PersonController).to receive(:gender)
+			expect_any_instance_of(View).to receive(:render_people)
 			view.get_gender
 		end
 	end
@@ -57,7 +57,7 @@ describe View do
 	describe '#render_people' do
 		let(:people) {[Person.new("Liepe", "Tammy", "Female", "Pink", "04/24/1961"), Person.new("Liepe", "Michael", "Male", "Red", "07/27/1960")]}
 		it 'renders Person objects to stdout' do
-			expect {View.render_people(people)}.to output("Last Name: Liepe First Name: Tammy Gender: Female Favorite Color: Pink Birthdate: 04/24/1961 \nLast Name: Liepe First Name: Michael Gender: Male Favorite Color: Red Birthdate: 07/27/1960 \n").to_stdout
+			expect {view.render_people(people)}.to output("Last Name: Liepe First Name: Tammy Gender: Female Favorite Color: Pink Birthdate: 04/24/1961 \nLast Name: Liepe First Name: Michael Gender: Male Favorite Color: Red Birthdate: 07/27/1960 \n").to_stdout
 
 		end
 	end
