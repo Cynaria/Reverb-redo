@@ -12,8 +12,16 @@ describe 'Grapetastic' do
   	it "posts a new formatted record" do
   		post('/records/', '{"string":"Schwartz | Josh | Male | Black | 08/11/1987"}', { "CONTENT_TYPE" => "application/json" })
 	    body = JSON.parse(last_response.body)
-	    p body
 	    expect(body["first_name"]).to eq("Josh")
   	end
   end
+
+  describe "GET /records/gender" do
+    it "returns an array ordered by gender/last asc" do
+      get "/records/gender"
+      body = JSON.parse(last_response.body)
+      expect(body[0]["first_name"]).to eq("Janette")
+    end
+  end
+
 end

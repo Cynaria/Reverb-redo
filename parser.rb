@@ -12,7 +12,7 @@ class Parser
 
 	def self.add_line(string)
 		info = Parser.parse_info(string)
-		File.open("./data/combined.txt", "w") { |file| file << " #{info[0]} #{info[1]} #{info[2]} #{info[3]} #{info[4]} \n" }
+		File.open("./data/combined.txt", "a") { |file| file << " #{info[0]} #{info[1]} #{info[2]} #{info[3]} #{info[4]} \n" }
 		return info
 	end
 

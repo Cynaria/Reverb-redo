@@ -44,9 +44,8 @@ describe PersonController do
 	end
 
 	describe '#add_person' do
-		it 'calls Parser#add_line' do
-			expect(Parser).to receive(:add_line).with (" Liepe Patti Female Blue 11/19/1987 ")
-			controller.add_person(" Liepe Patti Female Blue 11/19/1987 ")
+		it 'returns a person object' do
+			expect(controller.add_person(" Liepe Patti Female Blue 11/19/1987 ")).to be_an_instance_of Person
 		end
 	end
 end
