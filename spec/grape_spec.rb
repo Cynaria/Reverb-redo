@@ -32,4 +32,12 @@ describe 'Grapetastic' do
   	end
   end
 
+  describe "GET /records/last-name" do
+  	it "returns an array ordered by last name" do
+    	get "/records/last_name"
+      body = JSON.parse(last_response.body)
+    	expect(body[0]["last_name"]).to eq "Young"
+  	end
+  end
+  
 end

@@ -41,4 +41,9 @@ class API < Grape::API
 		hash_it(controller.birthdate)
 	end
 
+	desc "Returns records sorted by last name desc"
+	get :last_name do
+		hash_it(controller.last_names)
+	end
+
 end
