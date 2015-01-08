@@ -41,5 +41,4 @@ class PersonController
 			View.render_string("You need to combine your files first! Use combine <files>")
 		end
 	end
-
 end

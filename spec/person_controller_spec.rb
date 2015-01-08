@@ -41,6 +41,5 @@ describe PersonController do
 		it 'gets records by gender and last name asc' do
 			expect(controller.gender[0].first_name).to eq("Janette")
 		end
-		end
-
+	end
 end
