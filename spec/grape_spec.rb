@@ -24,4 +24,12 @@ describe 'Grapetastic' do
     end
   end
 
+  describe "GET /records/birthdate" do
+  	it "returns an array ordered by gender" do
+  		get "/records/birthdate"
+      body = JSON.parse(last_response.body)
+      expect(body[0]["birthdate"]).to eq("04/24/1961")
+  	end
+  end
+
 end
