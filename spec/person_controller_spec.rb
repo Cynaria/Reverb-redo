@@ -31,4 +31,16 @@ describe PersonController do
 		end
 	end
 
+	describe '#birthdate' do
+		it 'gets records by birthdate asc' do
+			expect(controller.birthdate[0].first_name).to eq("Ethan")
+		end
+	end
+
+	describe '#gender' do
+		it 'gets records by gender and last name asc' do
+			expect(controller.gender[0].first_name).to eq("Janette")
+		end
+		end
+
 end

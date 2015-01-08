@@ -1,4 +1,5 @@
 require_relative "person_controller.rb"
+require "pry"
 class View
 	def parse_options(opt)
 		if opt[0] == "combine"
@@ -9,12 +10,14 @@ class View
 			get_birthdate
 		elsif opt[0] == "gender"
 			get_gender
+		else
+			puts "Options are combine <files>, last_name, birthdate, or gender"
 		end
 
 	end
 
 	def combine(files)
-		controller.combine_files(files)
+			controller.combine_files(files)
 	end
 
 	def get_last_names
@@ -35,7 +38,7 @@ class View
 
 	def self.render_people(people)
 		people.each do |person|
-			puts "Last Name: #{person.last_name} First Name: #{person.first_name} Gender: #{person.gender} Favorite Color: #{person.favorite_color} Birthdate: #{person.birthdate} "
+			puts "Last Name: #{person.last_name} First Name: #{person.first_name} Gender: #{person.gender} Favorite Color: #{person.favorite_color} Birthdate: #{person.birthdate.strftime("%m/%d/%Y")} "
 		end
 	end
 
