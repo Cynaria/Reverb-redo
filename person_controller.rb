@@ -6,6 +6,11 @@ class PersonController
 		Parser.combine_files(files)
 	end
 
+	def last_names
+		sorted = create_people.sort_by { |person| person.last_name }.reverse
+		View.render_people(sorted)
+	end
+
 	def create_people
 		combined = "./data/combined.txt"
 		# Use the combined file with all records

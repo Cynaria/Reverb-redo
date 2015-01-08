@@ -23,6 +23,12 @@ describe PersonController do
 				controller.create_people
 			end
 		end
-
 	end
+
+	describe '#last_names' do
+		it 'gets records by last name desc' do
+			expect(controller.last_names[0].first_name).to eq("Kel")
+		end
+	end
+
 end
