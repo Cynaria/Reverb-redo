@@ -10,7 +10,7 @@ class Parser
 		info_str.split(/, |\|| /).delete_if {|s| s.empty?}
 	end
 
-	def self.combine_files(*files)
+	def self.combine_files(files)
 		File.open('./data/combined.txt', "w") do |f|
 			files.each do |file|
 				split = Parser.split_file(file)

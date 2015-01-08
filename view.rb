@@ -14,24 +14,37 @@ class View
 	end
 
 	def combine(files)
-		PersonController.combine_files(files)
+		controller.combine_files(files)
 	end
 
 	def get_last_names
-		PersonController.last_names
+		controller.last_names
 	end
 
 	def get_birthdate
-		PersonController.birthdate
+		controller.birthdate
 	end
 
 	def get_gender
-		PersonController.gender
+		controller.gender
 	end
 
-	def render(people)
+	def controller
+		controller ||= PersonController.new
+	end
+
+	def self.render_people(people)
 		people.each do |person|
 			puts "Last Name: #{person.last_name} First Name: #{person.first_name} Gender: #{person.gender} Favorite Color: #{person.favorite_color} Birthdate: #{person.birthdate} "
 		end
 	end
+
+	def self.render_string(string)
+		puts string
+	end
+end
+
+if __FILE__ == $0
+	view = View.new
+	view.parse_options(ARGV)
 end
