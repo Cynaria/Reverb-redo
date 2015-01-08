@@ -26,6 +26,11 @@ class PersonController
 		View.render_people(sorted)
 	end
 
+	def add_person(string)
+		info = Parser.add_line(string)
+		Person.new(info[0],info[1],info[2],info[3],Date.strptime(info[4], '%m/%d/%Y'))
+	end
+
 	def create_people
 		combined = "./data/combined.txt"
 		# Use the combined file with all records
